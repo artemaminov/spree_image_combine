@@ -1,8 +1,8 @@
 module Spree
-  class ImageCombine < ApplicationRecord
-    belongs_to :cropped_image
-    belongs_to :block_position
-    belongs_to :block_type
+  class ImageCombine < Spree::Base
+    belongs_to :cropped_image, class_name: "Spree::CroppedImage"
+    belongs_to :block_position, class_name: "Spree::ImageCombineBlockPosition"
+    belongs_to :block_type, class_name: "Spree::ImageCombineBlockType"
 
     accepts_nested_attributes_for :cropped_image
     accepts_nested_attributes_for :block_position
