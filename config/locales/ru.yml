@@ -8,6 +8,14 @@ ru:
         block_position: "Путь использования (position)"
         block_type: "Тип использования (type)"
         cropped_image: "Изображение"
+      spree/image_combine_block_position:
+        anchor_uid: "Якорь"
+        anchor_model: "Имя привязанной модели"
+      spree/image_combine_block_type:
+        controller_name: "Имя контроллера"
+        height: "Высота"
+        name: "Наименование"
+        width: "Ширина"
     errors:
       models:
         spree/image_combine:
@@ -17,10 +25,20 @@ ru:
         many: "Комбайн"
         one: "Комбайн"
         other: "Комбайн"
+      spree/image_combine_block_position:
+        many: "Комбайн"
+        one: "Комбайн"
+        other: "Комбайн"
+      spree/image_combine_block_type:
+        many: "Комбайн"
+        one: "Комбайн"
+        other: "Комбайн"
   spree:
     image_combine:
       block_position: "Путь использования (position)"
+      block_position_new: "Добавить"
       block_type: "Тип использования (type)"
+      block_type_new: "Добавить"
       media: "Изображения"
       nav_tab: "Комбайн"
       new: "Добавить комбпайн"
