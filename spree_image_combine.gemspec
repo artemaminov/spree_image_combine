@@ -34,7 +34,6 @@ Gem::Specification.new do |s|
   s.add_development_dependency 'database_cleaner'
   s.add_development_dependency 'factory_bot', '~> 4.7'
   s.add_development_dependency 'ffaker'
-  s.add_development_dependency 'mysql2'
   s.add_development_dependency 'pg'
   s.add_development_dependency 'pry'
   s.add_development_dependency 'rspec-rails'
