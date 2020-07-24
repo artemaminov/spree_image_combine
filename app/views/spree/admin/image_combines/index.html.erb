@@ -26,7 +26,7 @@
     <tr id="<%= spree_dom_id combine %>" data-hook="combine_row">
       <td>
         <%# byebug %>
-        <%#= image_tag(main_app.url_for(combine.cropped_image.attachment.variant(resize: '200x200>'))) %>
+        <%= image_tag(main_app.url_for(combine.cropped_image.attachment.variant(resize: '200x200>'))) %>
       </td>
       <td><table>
         <% combine.block_types.each do |t| %>
