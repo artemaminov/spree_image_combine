@@ -8,11 +8,11 @@
 
 <table class="table" id='listing_image_combine_block_positions' data-hook>
   <colgroup>
-    <col style="width: 30%">
+    <col style="width: 40%">
     <col style="width: 25%">
     <col style="width: 25%">
     <col style="width: 10%">
-    <col style="width: 10%">
+    <col style="width: 0">
   </colgroup>
   <thead>
   <tr data-hook="tax_header">
@@ -20,7 +20,6 @@
     <th><%= I18n.t(:anchor_model, scope: 'activerecord.attributes.spree/image_combine_block_position') %></th>
     <th><%= I18n.t(:controller_name, scope: 'activerecord.attributes.spree/image_combine_block_position') %></th>
     <th><%= I18n.t(:anchor_uid, scope: 'activerecord.attributes.spree/image_combine_block_position') %></th>
-    <th><%= I18n.t(:order, scope: 'activerecord.attributes.spree/image_combine_block_position') %></th>
     <th class="actions"></th>
   </tr>
   </thead>
@@ -31,7 +30,6 @@
       <td><%= position.anchor_model %></td>
       <td><%= position.controller_name %></td>
       <td><%= position.anchor_uid %></td>
-      <td><%= position.order %></td>
       <td class="actions actions-2 text-right">
         <%= link_to_edit(position, no_text: true) if can? :edit, position %>
         <%= link_to_delete(position, no_text: true) if can? :delete, position %>

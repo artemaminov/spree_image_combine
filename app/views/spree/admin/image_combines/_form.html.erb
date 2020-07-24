@@ -19,6 +19,10 @@
         <%= ipt_fields.label :block_position %>
         <%= ipt_fields.collection_select :block_position_id, Spree::ImageCombineBlockPosition.all, :id, :name, class: 'form-control' %>
         <%= error_message_on ipt_fields.object, :block_position %>
+
+        <%= ipt_fields.label :order %>
+        <%= ipt_fields.text_field :order %>
+        <%= error_message_on ipt_fields.object, :order %>
       </div>
 
     <% end %>
