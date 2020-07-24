@@ -1,5 +1,5 @@
 <% content_for :page_actions do %>
-  <%= button_link_to Spree.t(:back_to_resource_list, resource: plural_resource_name(Spree::ImageCombineBlockType)), spree.admin_image_combines_path, icon: 'arrow-left', class: 'btn-primary' %>
+  <%= button_link_to Spree.t(:back_to_resource_list, resource: plural_resource_name(Spree::ImageCombineBlockType)), spree.admin_image_combine_block_types_path, icon: 'arrow-left', class: 'btn-primary' %>
 <% end %>
 
 <%= form_for [:admin, resource] do |f| %>
@@ -10,12 +10,6 @@
         <%= f.label :name %>
         <%= f.text_field :name, class: 'form-control', required: true %>
         <%= f.error_message_on :name %>
-      <% end %>
-
-      <%= field_container f.object, :controller_name, class: ['form-group'] do %>
-        <%= f.label :controller_name %>
-        <%= f.text_field :controller_name, class: 'form-control', required: true %>
-        <%= f.error_message_on :controller_name %>
       <% end %>
 
     </div>

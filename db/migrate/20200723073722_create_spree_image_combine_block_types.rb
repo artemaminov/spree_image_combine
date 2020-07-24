@@ -1,10 +1,9 @@
 class CreateSpreeImageCombineBlockTypes < ActiveRecord::Migration[5.2]
   def change
     create_table :spree_image_combine_block_types do |t|
-      t.string :name
-      t.integer :width
-      t.integer :height
-      t.string :controller_name
+      t.string :name, null: false
+      t.integer :width, null: false
+      t.integer :height, null: false
 
       t.timestamps
     end
