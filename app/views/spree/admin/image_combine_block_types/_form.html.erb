@@ -12,6 +12,12 @@
         <%= f.error_message_on :name %>
       <% end %>
 
+      <%= field_container f.object, :model_class_name, class: ['form-group'] do %>
+        <%= f.label :model_class_name %>
+        <%= f.text_field :model_class_name, class: 'form-control', required: true %>
+        <%= f.error_message_on :model_class_name %>
+      <% end %>
+
     </div>
     <div class="col-lg-6" data-hook="admin_page_form_right">
 
