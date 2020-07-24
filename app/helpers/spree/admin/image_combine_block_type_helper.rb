@@ -1,2 +1,2 @@
-module Spree::Admin::ImageCombine::BlockTypeHelper
+module Spree::Admin::ImageCombineBlockTypeHelper
 end

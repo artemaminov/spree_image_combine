@@ -1,2 +1,2 @@
-module Spree::Admin::ImageCombine::BlockPositionsHelper
+module Spree::Admin::ImageCombineBlockPositionsHelper
 end
