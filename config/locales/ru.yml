@@ -13,11 +13,15 @@ ru:
         anchor_uid: "Якорь"
         anchor_model: "Имя привязанной модели"
         controller_name: "Имя контроллера"
-        order: "Сортировка"
       spree/image_combine_block_type:
         height: "Высота"
         name: "Наименование"
+        model_class_name: "Имя класса модели"
         width: "Ширина"
+      spree/images_positions_type:
+        block_type: "Тип использования (type)"
+        block_position: "Путь использования (position)"
+        order: "Сортировка"
     errors:
       models:
         spree/image_combine:
@@ -27,14 +31,8 @@ ru:
         many: "Комбайн"
         one: "Комбайн"
         other: "Комбайн"
-      spree/image_combine_block_position:
-        many: "Комбайн"
-        one: "Комбайн"
-        other: "Комбайн"
-      spree/image_combine_block_type:
-        many: "Комбайн"
-        one: "Комбайн"
-        other: "Комбайн"
+      spree/image_combine_block_position: "Путь использования (position)"
+      spree/image_combine_block_type: "Тип использования (type)"
   spree:
     image_combine:
       block_position: "Путь использования (position)"
