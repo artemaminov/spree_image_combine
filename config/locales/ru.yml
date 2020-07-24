@@ -9,10 +9,12 @@ ru:
         block_type: "Тип использования (type)"
         cropped_image: "Изображение"
       spree/image_combine_block_position:
+        name: "Наименование"
         anchor_uid: "Якорь"
         anchor_model: "Имя привязанной модели"
-      spree/image_combine_block_type:
         controller_name: "Имя контроллера"
+        order: "Сортировка"
+      spree/image_combine_block_type:
         height: "Высота"
         name: "Наименование"
         width: "Ширина"
