@@ -6,12 +6,12 @@ ru:
     attributes:
       spree/image_combine:
         block_position: "Путь использования (position)"
-        block_type: "Тип использования (type)"
-        cropped_image: "Изображение"
+        block_type: "Типы"
+        cropped_image: "Пути"
       spree/image_combine_block_position:
         name: "Наименование"
-        anchor_uid: "Якорь"
-        anchor_model: "Имя привязанной модели"
+        block_id: "ID привязанного объекта"
+        block_type: "Тип привязанной модели"
         controller_name: "Имя контроллера"
       spree/image_combine_block_type:
         height: "Высота"
@@ -19,9 +19,9 @@ ru:
         model_class_name: "Имя класса модели"
         width: "Ширина"
       spree/images_positions_type:
-        block_type: "Тип использования (type)"
-        block_position: "Путь использования (position)"
-        order: "Сортировка"
+        block_type: "Тип"
+        block_position: "Путь"
+        order: "Расположение"
     errors:
       models:
         spree/image_combine:
@@ -35,9 +35,9 @@ ru:
       spree/image_combine_block_type: "Тип использования (type)"
   spree:
     image_combine:
-      block_position: "Путь использования (position)"
+      block_position: "Позиционирования"
       block_position_new: "Добавить"
-      block_type: "Тип использования (type)"
+      block_type: "Типы"
       block_type_new: "Добавить"
       media: "Изображения"
       nav_tab: "Комбайн"
