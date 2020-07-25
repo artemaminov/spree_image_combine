@@ -10,16 +10,12 @@
     <%= f.fields_for :images_positions_types, ipt do |ipt_fields| %>
 
       <div class="col-lg-6" data-hook="admin_page_form_right">
-        <%= ipt_fields.label :block_type %>
-        <%= ipt_fields.collection_select :block_type_id, Spree::ImageCombineBlockType.all, :id, :name, class: 'form-control' %>
-        <%= error_message_on ipt_fields.object, :block_type %>
-      </div>
-
-      <div class="col-lg-6" data-hook="admin_page_form_left">
         <%= ipt_fields.label :block_position %>
         <%= ipt_fields.collection_select :block_position_id, Spree::ImageCombineBlockPosition.all, :id, :name, class: 'form-control' %>
         <%= error_message_on ipt_fields.object, :block_position %>
+      </div>
 
+      <div class="col-lg-6" data-hook="admin_page_form_left">
         <%= ipt_fields.label :order %>
         <%= ipt_fields.text_field :order %>
         <%= error_message_on ipt_fields.object, :order %>

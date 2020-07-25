@@ -29,10 +29,10 @@
         <%= image_tag(main_app.url_for(combine.cropped_image.attachment.variant(resize: '200x200>'))) %>
       </td>
       <td><table>
-        <% combine.block_types.each do |t| %>
+        <% combine.block_positions.each do |t| %>
           <tr>
             <td>
-              <%= t.name %>
+              <%= t.block_type.name unless t.block_type.blank? %>
             </td>
           </tr>
         <% end %>
