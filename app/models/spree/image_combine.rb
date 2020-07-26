@@ -1,8 +1,8 @@
 module Spree
   class ImageCombine < Spree::Base
     has_one :cropped_image, as: :viewable, dependent: :destroy, class_name: 'Spree::CroppedImage'
-    has_many :images_positions_types, class_name: 'Spree::ImagesPositionsType', inverse_of: :image_combine
-    has_many :block_positions, :class_name => 'Spree::ImageCombineBlockPosition', through: :images_positions_types, inverse_of: :image_combines
+    has_many :images_positions_types, dependent: :destroy, class_name: 'Spree::ImagesPositionsType', inverse_of: :image_combine
+    has_many :block_positions, dependent: :destroy, :class_name => 'Spree::ImageCombineBlockPosition', through: :images_positions_types, inverse_of: :image_combines
 
     accepts_nested_attributes_for :cropped_image
     accepts_nested_attributes_for :images_positions_types
