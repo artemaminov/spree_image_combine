@@ -29,7 +29,7 @@
       <td><%= position.block_type.name unless position.block_type.blank? %></td>
       <td><%= position.name %></td>
       <td><%= position.controller_name %></td>
-      <td><%= position.block_id %></td>
+      <td><%= position.fetch_block_name %></td>
       <td class="actions actions-2 text-right">
         <%= link_to_edit(position, no_text: true) if can? :edit, position %>
         <%= link_to_delete(position, no_text: true) if can? :delete, position %>

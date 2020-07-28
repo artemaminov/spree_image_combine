@@ -10,7 +10,7 @@ ru:
         cropped_image: "Пути"
       spree/image_combine_block_position:
         name: "Наименование"
-        block_id: "ID привязанного объекта"
+        block_id: "Привязанный объект"
         block_type: "Тип привязанной модели"
         controller_name: "Имя контроллера"
       spree/image_combine_block_type:
@@ -21,7 +21,7 @@ ru:
       spree/images_positions_type:
         block_type: "Тип"
         block_position: "Путь"
-        order: "Расположение"
+        order: "Порядковый номер"
     errors:
       models:
         spree/image_combine:
@@ -37,6 +37,7 @@ ru:
     image_combine:
       block_position: "Позиционирования"
       block_position_new: "Добавить"
+      block_position_select: "Выберите объект"
       block_type: "Типы"
       block_type_new: "Добавить"
       media: "Изображения"
