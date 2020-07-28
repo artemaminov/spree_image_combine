@@ -12,7 +12,7 @@ module Spree
     scope :type, ->(model_class_name) { where('spree_image_combine_block_types.model_class_name' => model_class_name) }
 
     def self.fetch(object, controller_name)
-      type = Spree::ImageCombineBlockType.find_by_model_class_name(object.class.class_name)
+      type = Spree::ImageCombineBlockType.find_by_model_class_name(object.class.name)
       position = joins(:block_positions).where("spree_image_combine_block_positions.controller_name": controller_name, "spree_image_combine_block_positions.block_id": object.id, "spree_image_combine_block_positions.block_type_id": type.id).first
       return position.cropped_image unless position.blank?
       false
