@@ -28,18 +28,18 @@ ru:
           attributes:
     models:
       spree/image_combine:
-        many: "Комбайн"
-        one: "Комбайн"
-        other: "Комбайн"
+        many: "Изображений"
+        one: "Изображение"
+        other: "Изображения"
       spree/image_combine_block_position: "Путь использования (position)"
       spree/image_combine_block_type: "Тип использования (type)"
   spree:
     image_combine:
-      block_position: "Позиционирования"
-      block_position_new: "Добавить"
+      block_position: "Позиционирование"
+      block_position_new: "Добавить блок"
       block_position_select: "Выберите объект"
       block_type: "Типы"
       block_type_new: "Добавить"
       media: "Изображения"
-      nav_tab: "Комбайн"
-      new: "Добавить комбпайн"
+      nav_tab: "Комбинирование"
+      new: "Добавить изображение"
