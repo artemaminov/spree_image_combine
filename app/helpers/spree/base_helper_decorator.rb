@@ -5,10 +5,10 @@ Spree::BaseHelper.module_eval do
       if image.blank?
         return nil
       else
-        output = Spree::CropperDevice.dimensions.map { |device, dimensions|
-            content_tag :source, "", { media: "(max-width: #{ dimensions[:width] }px)", srcset: main_app.url_for(image.attachment.variant(crop: image.for(device)))}
+        output = Spree::CropperDimension.dimensions.map { |device, dimensions|
+          content_tag :source, "", { media: "(max-width: #{ dimensions[:width] }px)", srcset: main_app.url_for(image.attachment.variant(crop: image.for(device)))}
         }
-        output << [image_tag(main_app.url_for(image.attachment.variant(crop: image.for(Spree::CropperDevice.largest))), class: image_class)]
+        output << [image_tag(main_app.url_for(image.attachment.variant(crop: image.for(Spree::CropperDimension.largest))), class: image_class)]
       end
       safe_join(output, "\n")
     end

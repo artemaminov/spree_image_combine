@@ -3,7 +3,7 @@
 <% end %>
 
 <%= form_for [:admin, resource] do |f| %>
-  <% resource.images_positions_types.build if resource.images_positions_types.blank? %>
+  <% resource.images_positions.build if resource.images_positions.blank? %>
   <div class="row" data-hook="admin_page_form_fields">
       <div class="col-lg-12" data-hook="admin_page_form_right">
         <%= f.select :block_position_ids, Spree::ImageCombineBlockPosition.all.map { |bp| ["#{bp.block_type.name} #{bp.name}", bp.id] }, {}, { multiple: true, class: "select2" } %>
