@@ -25,7 +25,6 @@
   <% @image_combines.each do |combine| %>
     <tr id="<%= spree_dom_id combine %>" data-hook="combine_row">
       <td>
-        <%# byebug %>
         <%= image_tag(main_app.url_for(combine.cropped_image.attachment.variant(resize: '200x200>'))) unless combine.cropped_image.blank? %>
       </td>
       <td><table>
