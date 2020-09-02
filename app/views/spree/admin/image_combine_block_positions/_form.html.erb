@@ -10,10 +10,11 @@
                 console.error('AJAX Error: ' + status + error);
             },
             success: function (response) {
-                var objects = response["objects"];
-                $("select#image_combine_block_position_block_id").empty();
-                for (var i = 0; i < objects.length; i++) {
-                    $("select#image_combine_block_position_block_id").append('<option value="' + objects[i]["id"] + '">' + objects[i]["name"] + '</option>');
+                let records = response["records"];
+                let blockPositionSelect = $("select#image_combine_block_position_block_id");
+                blockPositionSelect.empty();
+                for (var i = 0; i < records.length; i++) {
+                    blockPositionSelect.append('<option value="' + records[i]["id"] + '">' + records[i]["name"] + '</option>');
                 }
             }
         });
@@ -45,13 +46,13 @@
 
       <%= field_container f.object, :block_type, class: ['form-group'] do %>
         <%= f.label :block_type %>
-        <%= f.select :block_type_id, Spree::ImageCombineBlockType.all.map { |bt| [bt.name, bt.id] }, {}, { class: 'form-control' } %>
+        <%= f.select :block_type_id, @block_types.map { |bt| [bt.name, bt.id] }, {}, { class: 'form-control', required: true } %>
         <%= f.error_message_on :block_type %>
       <% end %>
 
       <%= field_container f.object, :block_id, class: ['form-group'] do %>
         <%= f.label :block_id %>
-        <%= f.select :block_id, @objects.map { |o| [o.name, o.id] }, {}, { class: 'form-control', required: true } %>
+        <%= f.select :block_id, @records.map { |o| [o.name, o.id] }, {}, { class: 'form-control', required: true } %>
         <%= f.error_message_on :block_id %>
       <% end %>
 

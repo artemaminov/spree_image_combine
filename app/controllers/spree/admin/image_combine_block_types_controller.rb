@@ -5,11 +5,11 @@ module Spree
         if params[:type].present?
           type = Spree::ImageCombineBlockType.find(params[:type])
           if type
-            objects = Object.const_get(type.model_class_name).all
+            records = Object.const_get(type.model_class_name).all
             if request.xhr?
               respond_to do |format|
                 format.json {
-                  render json: {objects: objects}
+                  render json: {records: records}
                 }
               end
             end
