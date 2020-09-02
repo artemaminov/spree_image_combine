@@ -14,11 +14,20 @@ module Spree
     after_save :build_croppers
 
     def self.fetch(object, controller_name)
-      type = Spree::ImageCombineBlockType.find_by_model_class_name(object.class.name)
+      type = get_type(object)
       return if type.nil?
       position = joins(:block_positions).where("spree_image_combine_block_positions.controller_name": controller_name, "spree_image_combine_block_positions.block_id": object.id, "spree_image_combine_block_positions.block_type_id": type.id).first
       return position.cropped_image unless position.blank?
       false
+    end
+
+    def self.type_dimensions(object)
+      type = get_type(object)
+      "#{type.width}x#{type.height}"
+    end
+
+    def self.get_type(object)
+      Spree::ImageCombineBlockType.find_by_model_class_name(object.class.name)
     end
 
     def build_croppers
