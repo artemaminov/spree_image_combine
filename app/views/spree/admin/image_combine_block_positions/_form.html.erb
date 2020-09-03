@@ -52,7 +52,7 @@
 
       <%= field_container f.object, :block_id, class: ['form-group'] do %>
         <%= f.label :block_id %>
-        <%= f.select :block_id, @records.map { |o| [o.name, o.id] }, {}, { class: 'form-control', required: true } %>
+        <%= f.select :block_id, @records.map { |o| [o.try(:name) || o.try(:title), o.id] }, {}, { class: 'form-control', required: true } %>
         <%= f.error_message_on :block_id %>
       <% end %>
 
