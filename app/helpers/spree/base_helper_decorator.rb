@@ -12,7 +12,14 @@ Spree::BaseHelper.module_eval do
         end
       else
         output = Spree::CropperDimension.dimensions.map { |device, dimensions|
-          content_tag :source, "", { media: "(max-width: #{ dimensions[:width] }px)", srcset: main_app.url_for(image.attachment.variant(crop: image.for(device)).processed)}
+          content_tag :source, "", {
+              media: "(max-width: #{ dimensions[:width] }px)",
+              srcset: main_app.url_for(fill_to_resize(
+                                           image.attachment,
+                                           crop: image.for(device),
+                                           resize: "#{dimensions[:width]}x#{dimensions[:height]}"
+                                       ))
+          }
         }
 
         main_image = image_tag(main_app.url_for(fill_to_resize(image.attachment, {
