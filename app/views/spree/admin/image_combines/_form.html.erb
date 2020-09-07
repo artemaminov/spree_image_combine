@@ -18,7 +18,7 @@
         <%= cropped_image_fields.label :attachment %>
         <%= cropped_image_fields.file_field :attachment %>
         <% unless resource.cropped_image.new_record? %>
-          <%= render partial: '/spree/admin/shared/cropper_form', locals: { resource: resource.cropped_image, cropped_image_fields: cropped_image_fields } %>
+          <%= render partial: '/spree/admin/shared/cropper_form', locals: { resource: resource.cropped_image, cropped_image_fields: cropped_image_fields, limits: resource.boundaries } %>
         <% end %>
       <% end %>
 

@@ -30,8 +30,8 @@ module Spree
       Spree::ImageCombineBlockType.find_by_model_class_name(object.class.name)
     end
 
-    def build_croppers
-
+    def boundaries
+      Hash[block_positions.map {|v| [v.block_type.name, { width: v.block_type.width, height: v.block_type.height }]}]
     end
 
   end
