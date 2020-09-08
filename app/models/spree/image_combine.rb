@@ -9,9 +9,15 @@ module Spree
     accepts_nested_attributes_for :block_positions
 
     scope :position, ->(controller_name, id) { where('spree_image_combine_block_positions.controller_name' => controller_name, 'spree_image_combine_block_positions.anchor_uid' => id) }
-    scope :type, ->(model_class_name) { where('spree_image_combine_block_types.model_class_name' => model_class_name) }
+    scope :type, ->(model_class_name) { Spree::ImageCombineBlockType.find_by_model_class_name model_class_name }
 
-    after_save :build_croppers
+    def attachment
+      cropped_image.attachment
+    end
+
+    def attached?
+      attachment.attached?
+    end
 
     def self.fetch(object, controller_name)
       type = get_type(object)
@@ -21,17 +27,22 @@ module Spree
       false
     end
 
-    def self.type_dimensions(object)
-      type = get_type(object)
-      "#{type.width}x#{type.height}"
+    def dimensions
+      type
     end
 
-    def self.get_type(object)
-      Spree::ImageCombineBlockType.find_by_model_class_name(object.class.name)
-    end
-
+    # Get type boundaries dimensions
     def boundaries
-      Hash[block_positions.map {|v| [v.block_type.name, { width: v.block_type.width, height: v.block_type.height }]}]
+      if type.is_a? Spree::ImageCombineBlockType
+        { width: type.width, height: type.height }
+      else
+        { width: 10, height: 10 }
+      end
+    end
+
+    # Get type class name
+    def type
+      Spree::ImageCombine.type combinable_type
     end
 
   end
