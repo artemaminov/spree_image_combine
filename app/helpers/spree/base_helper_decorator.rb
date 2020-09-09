@@ -1,6 +1,7 @@
+# frozen_string_literal: true
+
 Spree::BaseHelper.module_eval do
   def image_combine_tag(object, image_class = '')
-
     image = Spree::ImageCombine.fetch(object, controller_name)
     content_tag :picture do
       output =[]
