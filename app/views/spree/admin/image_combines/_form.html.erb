@@ -15,10 +15,9 @@
 
       <% resource.build_cropped_image if resource.cropped_image.blank? %>
       <%= f.fields_for :cropped_image, resource.cropped_image do |cropped_image_fields| %>
-        <%= cropped_image_fields.label :attachment %>
-        <%= cropped_image_fields.file_field :attachment %>
         <% unless resource.cropped_image.new_record? %>
-          <%= render partial: '/spree/admin/shared/cropper_form', locals: { resource: resource.cropped_image, cropped_image_fields: cropped_image_fields, limits: resource.boundaries } %>
+<!--          TODO: Bug find out how to fetch resource_name (attribute name) from model instance -->
+          <%= render partial: '/spree/admin/shared/cropper_form', locals: { resource: resource, resource_name: :image, f: cropped_image_fields, limits: resource.boundaries } %>
         <% end %>
       <% end %>
 
