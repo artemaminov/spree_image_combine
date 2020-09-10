@@ -14,12 +14,12 @@
     <div class="col-lg-12" data-hook="admin_additional_fields">
 
       <% resource.build_cropped_image if resource.cropped_image.blank? %>
-      <%= f.fields_for :cropped_image, resource.cropped_image do |cropped_image_fields| %>
+      <%#= f.fields_for :cropped_image, resource.cropped_image do |cropped_image_fields| %>
         <% unless resource.cropped_image.new_record? %>
 <!--          TODO: Bug find out how to fetch resource_name (attribute name) from model instance -->
-          <%= render partial: '/spree/admin/shared/cropper_form', locals: { resource: resource, resource_name: :image, f: cropped_image_fields, limits: resource.boundaries } %>
+          <%= render partial: '/spree/admin/shared/cropper_form', locals: { resource: resource, f: f, limits: resource.boundaries } %>
         <% end %>
-      <% end %>
+      <%# end %>
 
     </div>
   </div>

@@ -25,7 +25,7 @@ Spree::BaseHelper.module_eval do
 
         main_image = image_tag(main_app.url_for(fill_to_resize(image.attachment, {
             crop: image.for(Spree::CropperDimension.largest),
-            resize: Spree::ImageCombine.type_dimensions(object)
+            resize: Spree::ImageCombine.type_dimensions(image)
         })), class: image_class)
       end
       output << main_image

@@ -20,7 +20,7 @@ module Spree
     end
 
     def self.fetch(object, controller_name)
-      type = get_type(object)
+      type = type(object).first
       return if type.nil?
       position = joins(:block_positions).where("spree_image_combine_block_positions.controller_name": controller_name, "spree_image_combine_block_positions.block_id": object.id, "spree_image_combine_block_positions.block_type_id": type.id).first
       return position.cropped_image unless position.blank?
@@ -36,7 +36,7 @@ module Spree
       if type.is_a? Spree::ImageCombineBlockType
         { width: type.width, height: type.height }
       else
-        { width: 10, height: 10 }
+        { width: 1920, height: 488 }
       end
     end
 
@@ -45,5 +45,15 @@ module Spree
       Spree::ImageCombine.type combinable_type
     end
 
+
+    # Legacy
+    def self.type_dimensions(object)
+      type = get_type(object)
+      "#{type.width}x#{type.height}"
+    end
+
+    def self.get_type(object)
+      Spree::ImageCombineBlockType.find_by_model_class_name(object.class.name)
+    end
   end
 end
