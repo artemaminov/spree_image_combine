@@ -4,6 +4,8 @@ module Spree
     has_many :images_positions, dependent: :destroy, class_name: 'Spree::ImagesPosition', inverse_of: :image_combine
     has_many :block_positions, dependent: :destroy, :class_name => 'Spree::ImageCombineBlockPosition', through: :images_positions, inverse_of: :image_combines
 
+    belongs_to :boundary_type, class_name: 'Spree::ImageCombineBlockType'
+
     accepts_nested_attributes_for :cropped_image
     accepts_nested_attributes_for :images_positions
     accepts_nested_attributes_for :block_positions
@@ -16,7 +18,7 @@ module Spree
     end
 
     def attached?
-      attachment.attached?
+      cropped_image.present? && attachment.present?
     end
 
     def self.fetch(object, controller_name)
@@ -33,10 +35,10 @@ module Spree
 
     # Get type boundaries dimensions
     def boundaries
-      if type.is_a? Spree::ImageCombineBlockType
-        { width: type.width, height: type.height }
+      if boundary_type.present?
+        { width: boundary_type.width, height: boundary_type.height }
       else
-        { width: 1920, height: 488 }
+        false
       end
     end
 
